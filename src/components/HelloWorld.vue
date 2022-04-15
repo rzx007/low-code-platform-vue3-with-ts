@@ -1,6 +1,13 @@
 <script setup lang="ts">
+import { useCounterStore } from '@/stores/counter'
 import { ref } from 'vue'
+const counter = useCounterStore()
 
+counter.count++
+// with autocompletion ✨
+counter.$patch({ count: counter.count + 1 })
+// or using an action instead
+counter.increment()
 defineProps<{ msg: string }>()
 
 const count = ref(0)
@@ -25,6 +32,7 @@ const count = ref(0)
   </p>
 
   <button type="button" @click="count++">count is: {{ count }}</button>
+  <button type="button" @click="counter.increment()">pinia stores: {{ counter.count }}</button>
   <p>
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.

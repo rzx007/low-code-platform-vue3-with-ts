@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import App from './App.vue'
 
-const a = 1
-createApp(App).mount('#app')
+createApp(App).use(createPinia()).mount('#app')

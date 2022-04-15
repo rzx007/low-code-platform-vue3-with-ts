@@ -25,7 +25,7 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
       Components({
         dirs: ['src/components'],
         deep: true,
-        resolvers: [ElementPlusResolver()],
+        // resolvers: [ElementPlusResolver()],
       }),
     ],
     base: isBuild ? './' : VITE_PUBLIC_PATH,
