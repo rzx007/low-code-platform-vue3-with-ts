@@ -5,8 +5,10 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ZthBtn: typeof import('./src/components/zth-btn/index.vue')['default']
     ZthRawDisplayer: typeof import('./src/components/zth-raw-displayer/index.vue')['default']
   }
 }
