@@ -1,5 +1,5 @@
 <template>
-  <dynamic-component component-name="button">12</dynamic-component>
+  <!-- <dynamic-component component-name="button">12</dynamic-component> -->
   <draggable v-model="list" :group="{ name: 'zth1' }" item-key="name">
     <template #item="{ element }">
       <dynamic-component
@@ -13,7 +13,7 @@
       </dynamic-component>
     </template>
   </draggable>
-  <zth-raw-displayer class="col-3" :value="list" title="List" />
+  <!-- <zth-raw-displayer class="col-3" :value="list" title="List" /> -->
 </template>
 <script lang="ts">
 import { parseScript } from '@/utils/parseScript'

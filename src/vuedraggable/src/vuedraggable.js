@@ -131,24 +131,29 @@ const draggableComponent = defineComponent({
     }
 
     const { $attrs, $el, componentStructure } = this
-    componentStructure.updated()
+    setTimeout(() => {
+      componentStructure.updated()
 
-    const sortableOptions = createSortableOption({
-      $attrs,
-      callBackBuilder: {
-        manageAndEmit: (event) => manageAndEmit.call(this, event),
-        emit: (event) => emit.bind(this, event),
-        manage: (event) => manage.call(this, event),
-      },
-    })
-    const targetDomElement = $el.nodeType === 1 ? $el : $el.parentElement
-    this._sortable = new Sortable(targetDomElement, sortableOptions)
-    this.targetDomElement = targetDomElement
-    targetDomElement.__draggable_component__ = this
+      const sortableOptions = createSortableOption({
+        $attrs,
+        callBackBuilder: {
+          manageAndEmit: (event) => manageAndEmit.call(this, event),
+          emit: (event) => emit.bind(this, event),
+          manage: (event) => manage.call(this, event),
+        },
+      })
+      const targetDomElement = $el.nodeType === 1 ? $el : $el.parentElement
+      this._sortable = new Sortable(targetDomElement, sortableOptions)
+      this.targetDomElement = targetDomElement
+      //eslint-disable-next-line
+      targetDomElement.__draggable_component__ = this
+    }, 1500)
   },
 
   updated() {
-    this.componentStructure.updated()
+    setTimeout(() => {
+      this.componentStructure.updated()
+    }, 1500)
   },
 
   beforeUnmount() {

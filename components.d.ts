@@ -7,10 +7,19 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     DynamicComponent: typeof import('./src/components/dynamic-component/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCol: typeof import('element-plus/es')['ElCol']
+    ElRow: typeof import('element-plus/es')['ElRow']
+    ElTable: typeof import('element-plus/es')['ElTable']
+    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
+    ElTabPane: typeof import('element-plus/es')['ElTabPane']
+    ElTabs: typeof import('element-plus/es')['ElTabs']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ZthButton: typeof import('./src/components/zth-button/index.vue')['default']
+    ZthGrid: typeof import('./src/components/zth-grid/index.vue')['default']
     ZthRawDisplayer: typeof import('./src/components/zth-raw-displayer/index.vue')['default']
+    ZthTab: typeof import('./src/components/zth-tab/index.vue')['default']
+    ZthTable: typeof import('./src/components/zth-table/index.vue')['default']
   }
 }
 

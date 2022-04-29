@@ -37,15 +37,16 @@ export default defineComponent({
           span: 12,
           props: {
             gutter: 20,
+            justify: 'center',
           },
           children: [
             {
               name: 'task 3-1',
               // componentName: 'el-button',
               componentPath: 'zth-button/index',
+              span: 18,
               props: {
                 type: 'danger',
-                span: 8,
                 text: '危险',
               },
             },
@@ -53,17 +54,18 @@ export default defineComponent({
               name: 'task 3-2',
               // componentName: 'el-button',
               componentPath: 'zth-button/index',
+              span: 8,
               props: {
-                span: 8,
                 text: '查询',
+                type: 'warning',
               },
             },
             {
               name: 'task 3-3',
               // componentName: 'el-button',
               componentPath: 'zth-button/index',
+              span: 8,
               props: {
-                span: 8,
                 type: 'primary',
                 text: '查询',
               },
@@ -80,7 +82,7 @@ export default defineComponent({
           events: [
             {
               name: 'tab-click',
-              handler: `return function (data, event) { console.log(data, event); bus.emit('query', data.paneName) }`,
+              handler: `return function (data, event) { console.log(data, event); }`,
             },
           ],
           children: [
@@ -111,7 +113,8 @@ export default defineComponent({
               children: [
                 {
                   name: 'task 4-21',
-                  componentName: 'el-button',
+                  // componentName: 'el-button',
+                  componentPath: 'zth-button/index',
                   props: {
                     type: 'danger',
                   },
@@ -131,7 +134,7 @@ export default defineComponent({
           name: 'task 2',
           componentPath: 'zth-table/index',
           props: {
-            busHandler: `return function () {  
+            busHandler: `return function () {
               bus.on('query', (params) => {
               alert('接受外部组件的传值:'+params)
             }) }`,
