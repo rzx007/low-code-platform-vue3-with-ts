@@ -12,7 +12,7 @@ const resolve = (dir: string) => path.join(__dirname, dir)
 export default ({ command, mode }: ConfigEnv): UserConfigExport => {
   const isBuild = command === 'build'
   const root = process.cwd()
-  console.log(mode); // 获取当前环境的.nev.${mode}的值
+  console.log(mode) // 获取当前环境的.nev.${mode}的值
   const { VITE_PORT, VITE_PUBLIC_PATH, VITE_PROXY } = loadEnv(mode, root)
   return {
     plugins: [
