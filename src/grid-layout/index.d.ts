@@ -10,5 +10,5 @@ interface IGridLayoutProps {
 
 interface IEvent {
   name: string
-  handler?: (...args: any[]) => any
+  handler?: string
 }

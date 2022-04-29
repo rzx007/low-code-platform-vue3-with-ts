@@ -46,7 +46,7 @@ export default defineComponent({
     parseEvent(element: IGridLayoutProps) {
       const event: { [x: string]: any } = {}
       if (element.events && element.events.length > 0) {
-        element.events.forEach((item: Ievent) => {
+        element.events.forEach((item: IEvent) => {
           if (item.handler) {
             event[item.name] = parseScript(item.handler)
           }
