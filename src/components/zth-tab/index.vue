@@ -1,5 +1,5 @@
 <template>
-  <el-tabs v-model="activeName" type="card" v-bind="$attrs">
+  <el-tabs v-model="activeName" v-bind="$attrs">
     <template v-for="(item, index) in list" :key="index">
       <el-tab-pane :="item.props">
         <draggable :list="item.children" :group="{ name: 'zth1' }" item-key="name">

@@ -13,7 +13,7 @@
       </dynamic-component>
     </template>
   </draggable>
-  <!-- <zth-raw-displayer class="col-3" :value="list" title="List" /> -->
+  <zth-raw-displayer :value="list" title="List" />
 </template>
 <script lang="ts">
 import { parseScript } from '@/utils/parseScript'
