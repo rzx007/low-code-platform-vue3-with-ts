@@ -5,11 +5,13 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    CoIcon: typeof import('./src/components/co-icon/index.vue')['default']
     DynamicComponent: typeof import('./src/components/dynamic-component/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ZthButton: typeof import('./src/components/zth-button/index.vue')['default']
     ZthGrid: typeof import('./src/components/zth-grid/index.vue')['default']
+    ZthIcon: typeof import('./src/components/zth-icon/index.vue')['default']
     ZthRawDisplayer: typeof import('./src/components/zth-raw-displayer/index.vue')['default']
     ZthTab: typeof import('./src/components/zth-tab/index.vue')['default']
     ZthTable: typeof import('./src/components/zth-table/index.vue')['default']
