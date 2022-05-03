@@ -7,6 +7,14 @@ import {
 
 const routes: Array<RouteConfig> = [
   {
+    path: '/',
+    name: 'home',
+    component: () => import('../pages/home/index.vue'),
+    meta: {
+      title: '登录',
+    },
+  },
+  {
     path: '/dg',
     name: 'dg',
     component: () => import('../pages/draggable/index.vue'),
