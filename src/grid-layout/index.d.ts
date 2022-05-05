@@ -1,5 +1,8 @@
 interface IGridLayoutProps {
+  key?: string
+  id?: string
   name?: string
+  label?: string
   componentPath?: string
   componentName?: string
   span?: number

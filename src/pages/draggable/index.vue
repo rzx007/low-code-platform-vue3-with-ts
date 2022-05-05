@@ -21,6 +21,7 @@ export default defineComponent({
     return {
       list: [
         {
+          id: '1',
           name: 'task 1',
           componentPath: 'zth-button/index',
           // componentName: 'el-button',
@@ -32,6 +33,7 @@ export default defineComponent({
           },
         },
         {
+          id: '2',
           name: 'task 3',
           componentPath: 'zth-grid/index',
           span: 12,
@@ -41,6 +43,7 @@ export default defineComponent({
           },
           children: [
             {
+              id: '21',
               name: 'task 3-1',
               // componentName: 'el-button',
               componentPath: 'zth-button/index',
@@ -51,6 +54,7 @@ export default defineComponent({
               },
             },
             {
+              id: '22',
               name: 'task 3-2',
               // componentName: 'el-button',
               componentPath: 'zth-button/index',
@@ -61,6 +65,7 @@ export default defineComponent({
               },
             },
             {
+              id: '23',
               name: 'task 3-3',
               // componentName: 'el-button',
               componentPath: 'zth-button/index',
@@ -73,6 +78,7 @@ export default defineComponent({
           ],
         },
         {
+          id: '3',
           name: 'task 4',
           componentPath: 'zth-tab/index',
           span: 12,
@@ -87,6 +93,7 @@ export default defineComponent({
           ],
           children: [
             {
+              id: '31',
               name: 'task 4-1',
               props: {
                 label: 'tab1',
@@ -94,6 +101,7 @@ export default defineComponent({
               },
               children: [
                 {
+                  id: '311',
                   name: 'task 4-11',
                   componentPath: 'zth-button/index',
                   props: {
@@ -105,6 +113,7 @@ export default defineComponent({
               ],
             },
             {
+              id: '32',
               name: 'task 4-2',
               props: {
                 label: 'tab2',
@@ -112,6 +121,7 @@ export default defineComponent({
               },
               children: [
                 {
+                  id: '321',
                   name: 'task 4-21',
                   // componentName: 'el-button',
                   componentPath: 'zth-button/index',
@@ -119,18 +129,12 @@ export default defineComponent({
                     type: 'danger',
                   },
                 },
-                {
-                  name: 'task 4-32',
-                  componentName: 'el-button',
-                  props: {
-                    span: 9,
-                  },
-                },
               ],
             },
           ],
         },
         {
+          id: '4',
           name: 'task 2',
           componentPath: 'zth-table/index',
           props: {

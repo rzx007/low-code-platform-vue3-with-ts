@@ -5,19 +5,18 @@
   </div>
 </template>
 <script lang="ts">
-const props = {
-  title: {
-    required: true,
-    type: String,
-  },
-  value: {
-    type: String,
-    required: true,
-  },
-}
 export default {
   name: 'zth-raw-displayer',
-  props,
+  props: {
+    title: {
+      required: true,
+      type: String,
+    },
+    value: {
+      type: Array,
+      required: true,
+    },
+  },
   computed: {
     valueString(): string {
       // ts-ignore

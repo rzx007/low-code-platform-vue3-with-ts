@@ -5,6 +5,7 @@
     :component-data="$attrs"
     tag="el-row"
     item-key="name"
+    animation="300"
   >
     <template #item="{ element }">
       <el-col :span="element.span || 24">

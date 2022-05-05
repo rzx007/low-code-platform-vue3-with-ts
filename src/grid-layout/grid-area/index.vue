@@ -15,9 +15,9 @@
       <span
         v-for="(item, index) in gridAreaBottom"
         :key="index"
-        :class="['area-icon', bottomAvtive === item.value ? 'area-icon-active' : '']"
+        :class="['area-icon', topAvtive === item.value ? 'area-icon-active' : '']"
         :title="item.label"
-        @click="setBottomActive(item.value)"
+        @click="setTopActive(item.value)"
       >
         <zth-icon :icon="item.icon"></zth-icon>
       </span>
@@ -26,23 +26,21 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
-const topAvtive = ref('0')
+
+const topAvtive = ref('2')
 const gridAreaTop = ref([
   { icon: 'shuxing', label: 'outLine tree', value: '1' },
   { icon: 'zujian', label: '组件库', value: '2' },
   { icon: 'data-management', label: '数据源', value: '3' },
   { icon: 'js', label: '源码面板', value: '4' },
 ])
-const setTopActive = (value: string) => {
-  topAvtive.value = value
-}
 
-const bottomAvtive = ref('0')
 const gridAreaBottom = ref([
   { icon: 'wenhao', label: '如何使用', value: '5' },
   { icon: 'json-schema', label: 'Schema', value: '6' },
 ])
-const setBottomActive = (value: string) => {
+
+const setTopActive = (value: string) => {
   topAvtive.value = value
 }
 </script>

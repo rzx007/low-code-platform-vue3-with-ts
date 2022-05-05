@@ -5,18 +5,28 @@
       <div class="zth-left">
         <grid-area></grid-area>
       </div>
-      <div class="zth-fixed-pane"></div>
-      <div class="zth-workbench-center">
-        <div style="height: 2300px; width: 100%"></div>
+      <div class="zth-fixed-pane">
+        <grid-panel></grid-panel>
       </div>
-      <div class="zth-right"></div>
+      <div class="zth-workbench-center">
+        <div style="height: 2300px; width: 100%">
+          <grid-playground :tasks="lists"></grid-playground>
+        </div>
+      </div>
+      <div class="zth-right">
+        <grid-setting></grid-setting>
+      </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import gridArea from './grid-area/index.vue'
+import gridPanel from './grid-panel/index.vue'
+import gridPlayground from './grid-playground/index.vue'
+import gridSetting from './grid-setting/index.vue'
+import { list } from '@/mock/index'
 import { ref } from 'vue'
-const msg = ref('Hello World!')
+const lists = ref([])
 </script>
 <style lang="scss">
 .zth-engine-main {

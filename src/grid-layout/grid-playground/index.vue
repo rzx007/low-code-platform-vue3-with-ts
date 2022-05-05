@@ -1,9 +1,16 @@
 <template>
-  <draggable v-model="list" :group="{ name: 'zth1' }" item-key="name" animation="300" @add="add">
+  <draggable
+    v-model="list"
+    class="dragArea"
+    :group="{ name: 'zth1' }"
+    item-key="name"
+    animation="300"
+    @add="add"
+  >
     <template #item="{ element }">
       <div
-        :class="[checkedId === element.id ? 'zth-borders-selected' : '']"
-        @click.stop="seclectComponent(element)"
+        :class="[checkedId === element.key ? 'zth-borders-selected' : '']"
+        @click.prevent="seclectComponent(element)"
       >
         <dynamic-component
           :component-path="element.componentPath ? element.componentPath : ''"
@@ -35,18 +42,30 @@ export default defineComponent({
   },
   data() {
     return {
-      list: this.tasks,
+      list: JSON.parse(JSON.stringify(this.tasks)),
       checkedId: '',
       wiltheList: ['zth-grid', 'zth-tab'],
     }
   },
   methods: {
+    // 数组递归遍历
+    traverse(list: IGridLayoutProps[]) {
+      list.forEach((item) => {
+        if (!item.key) {
+          item.key = Math.random().toString(36).substr(2)
+        }
+        if (item.children && item.children.length > 0) {
+          this.traverse(item.children)
+        }
+      })
+    },
+    add(e) {
+      console.log(e)
+      this.traverse(this.list)
+    },
     // 生成不重复的key
     generateKey() {
       return Math.random().toString(36).substr(2, 9)
-    },
-    add(e: any) {
-      console.log(e)
     },
     // 特殊组件props处理
     composeProps(element: IGridLayoutProps) {
@@ -71,10 +90,11 @@ export default defineComponent({
       return parseScript(str)
     },
     seclectComponent(item: IGridLayoutProps) {
-      if (this.checkedId === item.id) {
+      if (this.checkedId === item.key) {
         this.checkedId = ''
       } else {
-        this.checkedId = item.id
+        //@ts-ignore
+        this.checkedId = item.key
       }
       bus.emit('seclect-component', item)
     },
@@ -85,6 +105,8 @@ export default defineComponent({
 .dragArea {
   min-height: 50px;
   outline: 1px dashed;
+  padding: 12px;
+  box-sizing: border-box;
 }
 .el-row {
   padding: 12px;
