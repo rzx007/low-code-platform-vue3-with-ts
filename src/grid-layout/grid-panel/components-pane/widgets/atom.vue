@@ -1,5 +1,5 @@
 <template>
-  <el-collapse>
+  <el-collapse v-model="activeNames">
     <el-collapse-item name="1">
       <template #title>
         <span class="coll-label">通用</span>
@@ -28,11 +28,10 @@
 <script setup lang="ts">
 import { list } from '@/mock/index'
 import draggable from '@/vuedraggable/src/vuedraggable.js'
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
 const lists = ref(list)
-const listsCopy = ref(list)
+const activeNames = ref(['1', '2'])
 const add = (element: IGridLayoutProps) => {
-  console.log(element)
   return JSON.parse(JSON.stringify(element))
 }
 </script>

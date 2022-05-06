@@ -29,6 +29,7 @@ declare module '@vue/runtime-core' {
     ZthGrid: typeof import('./src/components/zth-grid/index.vue')['default']
     ZthIcon: typeof import('./src/components/zth-icon/index.vue')['default']
     ZthRawDisplayer: typeof import('./src/components/zth-raw-displayer/index.vue')['default']
+    ZthRenderComponents: typeof import('./src/components/zth-render-components/index.vue')['default']
     ZthSkelet: typeof import('./src/components/zth-skelet/index.vue')['default']
     ZthTab: typeof import('./src/components/zth-tab/index.vue')['default']
     ZthTable: typeof import('./src/components/zth-table/index.vue')['default']

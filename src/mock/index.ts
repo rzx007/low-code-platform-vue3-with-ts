@@ -5,7 +5,10 @@ export const list = [
     label: '按钮',
     componentPath: 'zth-button/index',
     // componentName: 'el-button',
-    span: 12,
+    extra: {
+      display: 'inline',
+      span: 2,
+    },
     props: {
       busHandler: `return function () { console.log(bus); bus.emit('query', '我是来自button的数据') }`,
       type: 'primary',
@@ -17,10 +20,12 @@ export const list = [
     name: 'zth-row',
     label: '网格',
     componentPath: 'zth-grid/index',
-    span: 12,
+    extra: {
+      display: 'block',
+      span: 12,
+    },
     props: {
-      gutter: 20,
-      justify: 'center',
+      justify: 'start',
     },
     children: [],
   },
@@ -29,7 +34,10 @@ export const list = [
     name: 'zth-tab',
     label: 'tab',
     componentPath: 'zth-tab/index',
-    span: 12,
+    extra: {
+      display: 'block',
+      span: 12,
+    },
     props: {
       type: 'card',
     },
@@ -65,6 +73,9 @@ export const list = [
     name: 'zth-table',
     label: '表格',
     componentPath: 'zth-table/index',
+    extra: {
+      display: 'block',
+    },
     props: {
       busHandler: `return function () {
         bus.on('query', (params) => {

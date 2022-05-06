@@ -2,16 +2,24 @@
   <el-tabs v-model="activeName" v-bind="$attrs">
     <template v-for="(item, index) in listRef" :key="index">
       <el-tab-pane :="item.props">
-        <draggable :list="item.children" :group="{ name: 'zth1' }" item-key="name" animation="300">
+        <draggable
+          :list="item.children"
+          :group="{ name: 'zth1' }"
+          item-key="name"
+          animation="300"
+          @add="
+            () => {
+              traverse(list)
+            }
+          "
+        >
           <template #item="{ element }">
-            <dynamic-component
-              :component-path="element.componentPath ? element.componentPath : ''"
-              :component-name="element.componentName ? element.componentName : ''"
-              v-bind="composeProps(element)"
-              :bus-handler="parseScript(element.props?.busHandler || '')"
-              v-on="parseEvent(element)"
+            <zth-render-components
+              :active-id="checkedId"
+              :element="element"
+              @click.prevent.stop="seclectComponent(element)"
             >
-            </dynamic-component>
+            </zth-render-components>
           </template>
         </draggable>
       </el-tab-pane>
@@ -19,17 +27,31 @@
   </el-tabs>
 </template>
 <script lang="ts" setup>
-import { parseScript } from '@/utils/parseScript'
+import bus from '@/utils/bus'
 import draggable from '@/vuedraggable/src/vuedraggable.js'
 import { ref, onMounted, computed } from 'vue'
 const props = defineProps<{ list: IGridLayoutProps[]; busHandler?: Function }>()
 const activeName = ref(props.list[0].props?.name || 'first')
+const checkedId = ref('')
 
-const composeProps = (element: IGridLayoutProps) => {
-  return {
-    ...element.props,
-    list: element.children,
+const traverse = (list: IGridLayoutProps[]) => {
+  list.forEach((item) => {
+    if (!item.key) {
+      item.key = Math.random().toString(36).substr(2)
+    }
+    if (item.children && item.children.length > 0) {
+      traverse(item.children)
+    }
+  })
+}
+const seclectComponent = (item: IGridLayoutProps) => {
+  if (checkedId.value === item.key) {
+    checkedId.value = ''
+  } else {
+    //@ts-ignore
+    checkedId.value = item.key
   }
+  bus.emit('seclect-component', item)
 }
 
 const listRef = computed(() => {
@@ -48,18 +70,6 @@ const listRef = computed(() => {
   }
   return props.list
 })
-
-const parseEvent = (element: IGridLayoutProps) => {
-  const event: { [x: string]: any } = {}
-  if (element.events && element.events.length > 0) {
-    element.events.forEach((item: IEvent) => {
-      if (item.handler) {
-        event[item.name] = parseScript(item.handler)
-      }
-    })
-  }
-  return event
-}
 onMounted(() => {
   if (props.busHandler) {
     props.busHandler()
