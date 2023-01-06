@@ -1,10 +1,7 @@
 <template>
   <draggable v-model="list" :group="{ name: 'zth1' }" item-key="name" animation="300" @add="add">
     <template #item="{ element }">
-      <div
-        :class="[checkedId === element.id ? 'zth-borders-selected' : '']"
-        @click.stop="seclectComponent(element)"
-      >
+      <div :class="[checkedId === element.id ? 'zth-borders-selected' : '']" @click.stop="seclectComponent(element)">
         <dynamic-component
           :component-path="element.componentPath ? element.componentPath : ''"
           :component-name="element.componentName ? element.componentName : ''"

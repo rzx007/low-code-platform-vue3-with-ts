@@ -3,8 +3,7 @@
     {{ props }}
     <el-input v-model="props.text" placeholder="" clearable></el-input>
     <el-select v-model="props.type" value-key="" placeholder="" clearable filterable>
-      <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-      </el-option>
+      <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
     </el-select>
     <el-input v-model="extra.span" placeholder="" type="number"></el-input>
     <!-- <zth-form></zth-form> -->

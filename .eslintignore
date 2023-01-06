@@ -4,3 +4,4 @@ dist
 vite.config.ts
 iconfont.js
 package.json
+/src/vuedraggable

@@ -1,11 +1,3 @@
-/*
- * @Author: 阮志雄
- * @Date: 2022-04-14 17:55:32
- * @LastEditTime: 2022-04-14 17:55:33
- * @LastEditors: 阮志雄
- * @Description: In User Settings Edit
- * @FilePath: \low-code-platform-vue3-with-ts\.eslintrc.js
- */
 // eslint 解决代码质量问题，prettier解决代码风格格式问题
 module.exports = {
   root: true,
@@ -34,6 +26,7 @@ module.exports = {
   // eslint-plugin-vue @typescript-eslint/eslint-plugin eslint-plugin-prettier的缩写
   plugins: ['vue', '@typescript-eslint', 'prettier'],
   rules: {
+    '@typescript-eslint/no-this-alias': 'off',
     '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
@@ -52,7 +45,7 @@ module.exports = {
     'vue/no-v-html': 'off',
     'no-var': 'error',
     'no-undef': 0,
-    'prettier/prettier': 'error',
+    'prettier/prettier': ['error', { semi: false, printWidth: 120, singleQuote: true, endOfLine: 'auto' }],
     // 禁止出现console
     'no-console': 'off',
     // 禁用debugger

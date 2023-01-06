@@ -1,11 +1,7 @@
 import Sortable from 'sortablejs'
 import { insertNodeAt, removeNode } from './util/htmlHelper'
 import { console } from './util/console'
-import {
-  getComponentAttributes,
-  createSortableOption,
-  getValidSortableEntries,
-} from './core/componentBuilderHelper'
+import { getComponentAttributes, createSortableOption, getValidSortableEntries } from './core/componentBuilderHelper'
 import { computeComponentStructure } from './core/renderHelper'
 import { events } from './core/sortableEvents'
 import { h, defineComponent, nextTick } from 'vue'

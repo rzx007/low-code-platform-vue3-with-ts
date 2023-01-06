@@ -1,11 +1,4 @@
-import axios, {
-  AxiosInstance,
-  AxiosResponse,
-  CancelTokenStatic,
-  Canceler,
-  AxiosError,
-  Method,
-} from 'axios'
+import axios, { AxiosInstance, AxiosResponse, CancelTokenStatic, Canceler, AxiosError, Method } from 'axios'
 import { genConfig, RequestConfig } from './config'
 import { transformConfigByMethod } from './utils'
 import { httpStatus } from './httpStatus'
@@ -130,12 +123,7 @@ class FetchHttp {
   }
 
   // 封装请求
-  public request<T>(
-    method: Method,
-    url: string,
-    param?: any,
-    axiosConfig?: RequestConfig
-  ): Promise<T> {
+  public request<T>(method: Method, url: string, param?: any, axiosConfig?: RequestConfig): Promise<T> {
     const config = transformConfigByMethod(param, {
       method,
       url,

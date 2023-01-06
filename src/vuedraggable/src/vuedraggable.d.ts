@@ -61,9 +61,7 @@ declare const draggableComponent: import('vue').DefineComponent<
   import('vue').ComponentOptionsMixin,
   any[],
   any,
-  import('vue').VNodeProps &
-    import('vue').AllowedComponentProps &
-    import('vue').ComponentCustomProps,
+  import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps,
   Readonly<
     {
       move: Function

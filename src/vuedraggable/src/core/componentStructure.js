@@ -54,9 +54,7 @@ class ComponentStructure {
       return 0
     }
     const firstDomListElement = getHtmlElementFromNode(defaultNodes[0])
-    const indexFirstDomListElement = [...domChildren].findIndex(
-      (element) => element === firstDomListElement
-    )
+    const indexFirstDomListElement = [...domChildren].findIndex((element) => element === firstDomListElement)
     return domIndex < indexFirstDomListElement ? 0 : length
   }
 }

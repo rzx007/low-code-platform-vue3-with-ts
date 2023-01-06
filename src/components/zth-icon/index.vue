@@ -8,7 +8,11 @@
 import './iconfont.js'
 export default {
   name: 'svg-icon',
-  props: ['icon'],
+  props: {
+    icon: {
+      type: String,
+    },
+  },
   data() {
     return {
       name: '#icon-' + this.icon,

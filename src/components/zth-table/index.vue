@@ -1,12 +1,6 @@
 <template>
   <el-table :data="TbaleData" border stripe>
-    <el-table-column
-      v-for="col in columns"
-      :key="col.prop"
-      :prop="col.prop"
-      :label="col.label"
-      :width="col.width"
-    >
+    <el-table-column v-for="col in columns" :key="col.prop" :prop="col.prop" :label="col.label" :width="col.width">
     </el-table-column>
   </el-table>
 </template>

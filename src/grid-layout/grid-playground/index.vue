@@ -12,11 +12,7 @@
     "
   >
     <template #item="{ element }">
-      <zth-render-components
-        :active-id="checkedId"
-        :element="element"
-        @click.prevent.stop="seclectComponent(element)"
-      >
+      <zth-render-components :active-id="checkedId" :element="element" @click.prevent.stop="seclectComponent(element)">
       </zth-render-components>
     </template>
   </draggable>
